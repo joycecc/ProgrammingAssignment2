@@ -1,7 +1,7 @@
-## makeCacheMatrix creates a list of 4 functions, set(),get(),setinv(),getinv(),user can pass along a 
-## vector to the function using makeCacheMatrix
+## makeCacheMatrix creates a list of 4 functions, set(),get(),setinv(),getinv(),
 ##cacheSolve() can call the functions created by makeCacheMatrix()
-## Example: 
+
+## Test Example: 
 ##    > x <- makeCacheMatrix(matrix(c(1,2,3,4), nrow=2, ncol=2))
 ##    > cacheSolve(x)
 ##    .. calculate inverse and output
@@ -22,7 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
   
   setinv <- function(invs) m <<- invs 
   #store the calculated inverse matrix into m, cacheSolve() will call this 
-  ##function after computing the inverse of the initial matrix
+  ##function to store the inverse after computing the inverse of the initial matrix
   
   getinv <- function() m 
   ## if the inverse matrix is already computed , then getinv() will return the inverse,
@@ -32,17 +32,17 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get,
        setinv = setinv,
        getinv = getinv)
-  ##the list of 4 functions that cacheSolve will call
+  ##the list of 4 functions that cacheSolve() will call
 }
 
 
-## cacheSolve mainly check if the inverse matrix is already computed. If not, then cacheSolve compute
+## cacheSolve mainly check if the inverse matrix is already computed. If not, then cacheSolve() compute
 ## the inverse matrix and store it back to x.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   m <- x$getinv()
-  ##get the inverse matrix from x
+  ##get the inverse matrix(or NULL if the inverse hasn't been calculated) from x
   
   if(!is.null(m)) {
     message("getting cached data")
