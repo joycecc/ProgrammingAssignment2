@@ -27,7 +27,7 @@ makeCacheMatrix <- function(x = matrix()) {
   getinv <- function() m 
   ## if the inverse matrix is already computed , then getinv() will return the inverse,
   ##if not, then getinv() will return NULL. cacheSolve will call this function to see 
-  ##if the the inverse exists already
+  ##if the inverse exists already
   
   list(set = set, get = get,
        setinv = setinv,
